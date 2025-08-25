@@ -1,0 +1,338 @@
+/* Nuevo CSS para el dashboard y la barra lateral */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Nuevo: para el layout con barra lateral */
+}
+
+/* Sidebar (Barra Lateral) */
+.sidebar {
+    width: 250px;
+    background-color: #1f1f1f;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 1.5rem 1rem;
+    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-header h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.sidebar-nav .nav-item {
+    color: #bdbdbd;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-nav .nav-item:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.sidebar-nav .nav-item i {
+    margin-right: 10px;
+}
+
+/* Contenedor principal de contenido */
+.content-wrapper {
+    margin-left: 250px; /* Asegura que el contenido no se solape con la barra lateral */
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+/* Dashboard Section */
+.dashboard-section {
+    padding: 2rem;
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.section-title {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-large {
+    font-size: 2.5rem;
+    color: #6a1b9a;
+}
+
+.metric-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #bdbdbd;
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.action-card {
+    background-color: #4a148c;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-card:hover {
+    background-color: #6a1b9a;
+}
+
+.action-card i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos existentes (mantener los del código anterior) */
+.module-card {
+    background-color: #1f1f1f;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.module-title {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2rem;
+    border-bottom: 2px solid #555;
+    padding-bottom: 1rem;
+}
+
+.module-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.form-section, .list-section {
+    flex: 1 1 45%;
+    background-color: #2c2c2c;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #bdbdbd;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #3c3c3c;
+    border: 1px solid #555;
+    border-radius: 6px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #6a1b9a;
+    box-shadow: 0 0 5px rgba(106, 27, 154, 0.5);
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #6a1b9a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #4a148c;
+}
+
+.list-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.data-card {
+    background-color: #3c3c3c;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.data-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.data-card h4 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.data-card p {
+    margin: 0.5rem 0;
+    color: #e0e0e0;
+}
+
+.no-results {
+    color: #bdbdbd;
+    text-align: center;
+    padding: 1rem;
+}
+
+.mensaje {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.exito {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.error {
+    background-color: #c62828;
+    color: #ffffff;
+}
+/* --- Nuevos estilos para las tablas --- */
+
+.table-container {
+    overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    overflow: hidden; /* Para que los bordes redondeados funcionen bien */
+}
+
+.data-table th, .data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+.data-table th {
+    background-color: #3c3c3c;
+    color: #bdbdbd;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.data-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+    background-color: #4a148c; /* Color morado al pasar el cursor */
+    cursor: pointer;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
