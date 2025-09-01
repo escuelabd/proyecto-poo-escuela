@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestión Escolar</title>
+  <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+        color: #f5f5f5;
+        background: linear-gradient(135deg, #3d5a3d, #4a6b4a);
+        padding: 15px 20px;
+        border-radius: 8px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        box-shadow: 0 4px 15px rgba(61, 90, 61, 0.3);
+        border-left: 5px solid #6b8e6b;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, #3d5a3d, #4a6b4a, #6b8e6b);
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-top: 40px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+        background: linear-gradient(135deg, #2d4a2d, #3d5a3d);
+    }
+
+    nav a {
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    nav a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(61, 90, 61, 0.4);
+    }
+
+    form {
+        background: linear-gradient(135deg, #2d2d2d, #3d3d3d);
+        padding: 25px;
+        margin-bottom: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(61, 90, 61, 0.2);
+        border: 2px solid #3d5a3d;
+        position: relative;
+        overflow: hidden;
+    }
+
+    form::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3d5a3d, #4a6b4a, #6b8e6b, #3d5a3d);
+        animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: calc(100% - 24px);
+        padding: 15px 12px;
+        margin: 10px 0;
+        border: 2px solid #3d5a3d;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+        color: #1a1a1a;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    select:focus {
+        border-color: #6b8e6b;
+        outline: none;
+        box-shadow: 0 0 15px rgba(61, 90, 61, 0.4), inset 0 2px 4px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+        background: linear-gradient(135deg, #ffffff, #f5f5f5);
+    }
+
+    button {
+        background: linear-gradient(135deg, #3d5a3d, #4a6b4a);
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(61, 90, 61, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    button:hover {
+        background: linear-gradient(135deg, #4a6b4a, #6b8e6b);
+        box-shadow: 0 6px 20px rgba(61, 90, 61, 0.5);
+        transform: translateY(-3px);
+    }
+
+    hr {
+        border: none;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #3d5a3d, #4a6b4a, #6b8e6b, #3d5a3d, transparent);
+        margin: 40px 0;
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(61, 90, 61, 0.3);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    form {
+        animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes slideInFromTop {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    body {
+        animation: slideInFromTop 0.8s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <nav style="background-color: #2d2d2d; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center;">
+    <a href="index.html" style="color: #f5f5f5; text-decoration: none; margin: 0 15px; padding: 8px 16px; background-color: #3d5a3d; border-radius: 4px;">Inicio</a>
+    <a href="tablas.html" style="color: #f5f5f5; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid #3d5a3d; border-radius: 4px; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#3d5a3d'" onmouseout="this.style.backgroundColor='transparent'">Ver Datos</a>
+  </nav>
+
+  <h1>Sistema de Gestión Escolar</h1>
+
+  <!-- ESCUELAS -->
+  <h2>Escuelas</h2>
+
+  <h3>Crear Nueva Escuela</h3>
+  <form method="POST">
+    <input type="text" name="nombre_escuela" placeholder="Nombre de la escuela" required />
+    <input type="text" name="direccion" placeholder="Dirección" required />
+    <input type="text" name="telefono" placeholder="Teléfono" required />
+    <button type="submit" name="crear_escuela">Crear Escuela</button>
+  </form>
+
+  <hr />
+
+  <!-- PROFESORES -->
+  <h2>Profesores</h2>
+
+  <h3>Crear Nuevo Profesor</h3>
+  <form method="POST">
+    <input type="text" name="nombre_profesor" placeholder="Nombre del profesor" required />
+    <input type="text" name="apellido_profesor" placeholder="Apellido del profesor" required />
+    <input type="text" name="especialidad" placeholder="Especialidad" required />
+    <select name="escuela_id" required>
+      <option value="">-- Seleccionar Escuela --</option>
+      <option value="1">Escuela Central</option>
+      <option value="2">Instituto Norte</option>
+    </select>
+    <button type="submit" name="crear_profesor">Crear Profesor</button>
+  </form>
+
+  <hr />
+
+  <!-- CLASES -->
+  <h2>Clases</h2>
+
+  <h3>Crear Nueva Clase</h3>
+  <form method="POST">
+    <input type="text" name="nombre_clase" placeholder="Nombre de la clase" required />
+    <input type="text" name="descripcion" placeholder="Descripción de la clase" />
+    <select name="profesor_id" required>
+      <option value="">-- Seleccionar Profesor --</option>
+      <option value="1">Juan Pérez - Matemáticas</option>
+      <option value="2">Laura Gómez - Historia</option>
+    </select>
+    <select name="escuela_id" required>
+      <option value="">-- Seleccionar Escuela --</option>
+      <option value="1">Escuela Central</option>
+      <option value="2">Instituto Norte</option>
+    </select>
+    <button type="submit" name="crear_clase">Crear Clase</button>
+  </form>
+
+  <hr />
+
+  <!-- ALUMNOS -->
+  <h2>Alumnos</h2>
+
+  <h3>Crear Nuevo Alumno</h3>
+  <form method="POST">
+    <input type="text" name="nombre_alumno" placeholder="Nombre del alumno" required />
+    <input type="text" name="apellido_alumno" placeholder="Apellido del alumno" required />
+    <input type="number" name="edad" placeholder="Edad" required />
+    <select name="escuela_id" required>
+      <option value="">-- Seleccionar Escuela --</option>
+      <option value="1">Escuela Central</option>
+      <option value="2">Instituto Norte</option>
+    </select>
+    <button type="submit" name="crear_alumno">Crear Alumno</button>
+  </form>
+
+  <hr />
+
+  <!-- ASIGNACIONES -->
+  <h2>Asignaciones Alumno-Clase</h2>
+
+  <h3>Asignar Alumno a Clase</h3>
+  <form method="POST">
+    <select name="alumno_id" required>
+      <option value="">-- Seleccionar Alumno --</option>
+      <option value="1">Carlos López</option>
+      <option value="2">María Fernández</option>
+    </select>
+    <select name="clase_id" required>
+      <option value="">-- Seleccionar Clase --</option>
+      <option value="1">Álgebra I</option>
+      <option value="2">Historia Moderna</option>
+    </select>
+    <button type="submit" name="asignar_alumno">Asignar a Clase</button>
+  </form>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="tablas.html" style="background-color: #3d5a3d; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#4a6b4a'" onmouseout="this.style.backgroundColor='#3d5a3d'">
+      Ver Todos los Datos Registrados →
+    </a>
+  </div>
+</body>
+</html>
